@@ -1,6 +1,6 @@
 import 'package:ejercicio/Ansi/Emergencia.dart';
+import 'package:ejercicio/Ansi/home.dart';
 import 'package:ejercicio/Ansi/registro.dart';
-
 import 'package:flutter/material.dart';
 
 class inicio extends StatefulWidget {
@@ -26,7 +26,7 @@ class _inicioState extends State<inicio> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('images/Imagen1.png'),
-                      fit: BoxFit.cover),
+                      fit: BoxFit.fitWidth),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -61,8 +61,13 @@ class _inicioState extends State<inicio> {
                     FractionallySizedBox(
                       widthFactor: 0.35,
                       child: ElevatedButton(
-                          onPressed: (() => print("funciona")),
-                          child: Text("Login")),
+                          child: Text("Log in"),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => home()));
+                          }),
                     ),
                     SizedBox(
                       height: 30,
@@ -81,10 +86,8 @@ class _inicioState extends State<inicio> {
                     SizedBox(
                       height: 30,
                     ),
-                    FractionallySizedBox(
-                      widthFactor: 0.2,
-                      child: ElevatedButton(
-                      
+                    
+                    FloatingActionButton(
                       child: Image.asset('images/smartphone.png'),
                       onPressed: () {
                             Navigator.push(
@@ -93,9 +96,8 @@ class _inicioState extends State<inicio> {
                                     builder: (context) => Emergencia()));
                       },
                       ),
-                      ),
                     SizedBox(
-                      height: 55,
+                      height: 65,
                     ),
                   ],
                 )),

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "510528071555",
+    "project_id": "ansi-6e142",
+    "storage_bucket": "ansi-6e142.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510528071555:android:a48cb2fa4a25e254c9f8b6",
+        "android_client_info": {
+          "package_name": "ansi.aplicacion.ansi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBovCiQtjq_9-YYW751Oz1vq_J_AgOLorw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510528071555:android:ed9481e9e25e2b15c9f8b6",
+        "android_client_info": {
+          "package_name": "com.example.ejercicio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBovCiQtjq_9-YYW751Oz1vq_J_AgOLorw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
