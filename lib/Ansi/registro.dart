@@ -51,7 +51,9 @@ class _SignUpPageState extends State<SignUpPage> {
               decoration: InputDecoration(labelText: 'Confirmación de clave'),
               obscureText: true,
             ),
-            SizedBox( height: 30,),
+            SizedBox(
+              height: 30,
+            ),
             ElevatedButton(
               onPressed: () {
                 String firstName = _firstNameController.text;
@@ -100,8 +102,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   );
                 } else {
                   _registerUser(firstName, lastName, email, gender, password);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => home()));
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => home()));
                 }
               },
               child: Text('Registrarse'),

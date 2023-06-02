@@ -27,6 +27,7 @@ class _inicioState extends State<inicio> {
                   image: DecorationImage(
                       image: AssetImage('images/Imagen1.png'),
                       fit: BoxFit.fitWidth),
+                      
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -86,16 +87,15 @@ class _inicioState extends State<inicio> {
                     SizedBox(
                       height: 30,
                     ),
-                    
                     FloatingActionButton(
                       child: Image.asset('images/smartphone.png'),
                       onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Emergencia()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Emergencia()));
                       },
-                      ),
+                    ),
                     SizedBox(
                       height: 65,
                     ),
