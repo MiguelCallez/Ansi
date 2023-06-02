@@ -1,5 +1,6 @@
 import 'package:ejercicio/Ansi/Emergencia.dart';
 import 'package:ejercicio/Ansi/Inicio.dart';
+import 'package:ejercicio/Ansi/barra/barralateral.dart';
 import 'package:ejercicio/Ansi/home.dart';
 import 'package:ejercicio/Ansi/registro.dart';
 import 'package:ejercicio/Ansi/estres.dart';
@@ -19,8 +20,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
+      
       initialRoute: 'inicio',
-      routes: {'inicio': (_) => inicio(), 'registro': (_) => SignUpPage(),'home': (_) => home(),'Emergencia':(_) => Emergencia(),'estres':(_)=> estres(),'comunidad':(_)=> comunidad()},
+      routes: {'inicio': (_) => inicio(), 'registro': (_) => SignUpPage(),'home': (_) => home(),'Emergencia':(_) => Emergencia(),'estres':(_)=> estres(),'comunidad':(_)=> comunidad(),'barra': (_) => barra()},
     );
   }
 }

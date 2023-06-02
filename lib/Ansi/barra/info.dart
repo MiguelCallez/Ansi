@@ -11,8 +11,9 @@ class infoavatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      
       leading: const CircleAvatar(
-        backgroundColor: Colors.white24,
+        backgroundColor: Color.fromARGB(59, 66, 66, 66),
         child: Icon(CupertinoIcons.person,
         color: Colors.white,
         ),

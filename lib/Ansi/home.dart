@@ -1,8 +1,14 @@
+import 'package:ejercicio/Ansi/barra/barralateral.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:ejercicio/Ansi/estres.dart';
 import 'package:ejercicio/Ansi/Emergencia.dart';
+import 'barra/barraMenu.dart';
+import 'barra/barralateral.dart';
+import 'barra/info.dart';
+
 class home extends StatefulWidget {
   const home({super.key});
 
@@ -18,7 +24,6 @@ class _hometState extends State<home> {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Ansi'),
-          
           bottom: TabBar(
             tabs: [
               Tab( child: ElevatedButton(
@@ -27,7 +32,7 @@ class _hometState extends State<home> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Emergencia()));
+                                    builder: (context) => home()));
                           }),
                           ),
                       
@@ -50,12 +55,30 @@ class _hometState extends State<home> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Emergencia()));
+                                    builder: (context) => barra()));
                           }),
                           ),
             ],
           ),
         ),
+        
+        drawer: Drawer(
+          child: Column(
+          children: [
+            const infoavatar(name:"miguel",
+            profession: "cliente",
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left:24, top: 42,bottom: 16),
+              child: Text("app ansi", 
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: Colors.white70)),
+            ),
+            menu()
+          ],
+        )
+        ),
+
         body: ListView(
           
           children: [
@@ -178,3 +201,159 @@ class _hometState extends State<home> {
     );
   }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
