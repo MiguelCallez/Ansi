@@ -13,8 +13,14 @@ import 'package:ejercicio/Ansi/estres.dart';
 import 'package:ejercicio/Ansi/comunidad.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ejercicio/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized;
+  await Firebase.initializeApp(
+    options:DefaultFirebaseOptions.currentPlatform,
+    );
   runApp(MyApp());
 }
 

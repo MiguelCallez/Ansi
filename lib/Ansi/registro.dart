@@ -1,5 +1,8 @@
+import 'dart:js_util';
+
 import 'package:ejercicio/Ansi/Inicio.dart';
 import 'package:ejercicio/Ansi/home.dart';
+import 'package:ejercicio/servicios/firebase.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -8,12 +11,13 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  TextEditingController _firstNameController = TextEditingController();
-  TextEditingController _lastNameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _genderController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  TextEditingController  nombreController = TextEditingController();
+  TextEditingController  apellidoController = TextEditingController();
+  TextEditingController  emailController = TextEditingController();
+  TextEditingController  generoController = TextEditingController();
+  TextEditingController  nombreUsuarioController = TextEditingController();
+  TextEditingController  claveController = TextEditingController();
+  TextEditingController  confirmclaveController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,49 +30,55 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Column(
           children: [
             TextField(
-              controller: _firstNameController,
-              decoration: InputDecoration(labelText: 'Nombre'),
+              controller: nombreController,
+              decoration: const InputDecoration(labelText: 'Nombre'),
             ),
             TextField(
-              controller: _lastNameController,
-              decoration: InputDecoration(labelText: 'Apellido'),
+              controller: apellidoController,
+              decoration: const InputDecoration(labelText: 'Apellido'),
             ),
             TextField(
-              controller: _emailController,
-              decoration: InputDecoration(labelText: 'Email'),
+              controller: emailController,
+              decoration: const InputDecoration(labelText: 'Email'),
             ),
             TextField(
-              controller: _genderController,
-              decoration: InputDecoration(labelText: 'Género'),
+              controller: generoController,
+              decoration: const InputDecoration(labelText: 'Género'),
             ),
             TextField(
-              controller: _passwordController,
-              decoration: InputDecoration(labelText: 'Clave'),
+              controller: nombreUsuarioController,
+              decoration: const InputDecoration(labelText: 'Nombre de usuario'),
+            ),
+            TextField(
+              controller: claveController,
+              decoration: const InputDecoration(labelText: 'Clave'),
               obscureText: true,
             ),
             TextField(
-              controller: _confirmPasswordController,
-              decoration: InputDecoration(labelText: 'Confirmación de clave'),
+              controller: confirmclaveController,
+              decoration: const InputDecoration(labelText: 'Confirmación de clave'),
               obscureText: true,
             ),
             SizedBox(
               height: 30,
             ),
             ElevatedButton(
-              onPressed: () {
-                String firstName = _firstNameController.text;
-                String lastName = _lastNameController.text;
-                String email = _emailController.text;
-                String gender = _genderController.text;
-                String password = _passwordController.text;
-                String confirmPassword = _confirmPasswordController.text;
+              onPressed: () async{
+                String nombre = nombreController.text;
+                String apellido = apellidoController.text;
+                String email =  emailController.text;
+                String genero = generoController.text;
+                String nombreUsuario= nombreUsuarioController.text;
+                String clave = claveController.text;
+                String confirmClave = confirmclaveController.text;
 
-                if (firstName.isEmpty ||
-                    lastName.isEmpty ||
+                if (nombre.isEmpty ||
+                    apellido.isEmpty ||
                     email.isEmpty ||
-                    gender.isEmpty ||
-                    password.isEmpty ||
-                    confirmPassword.isEmpty) {
+                    genero.isEmpty ||
+                    nombreUsuario.isEmpty||
+                    clave.isEmpty ||
+                    confirmClave.isEmpty) {
                   showDialog(
                     context: context,
                     builder: (context) {
@@ -84,7 +94,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       );
                     },
                   );
-                } else if (password != confirmPassword) {
+                } else if (clave != confirmClave) {
                   showDialog(
                     context: context,
                     builder: (context) {
@@ -101,10 +111,11 @@ class _SignUpPageState extends State<SignUpPage> {
                     },
                   );
                 } else {
-                  _registerUser(firstName, lastName, email, gender, password);
+                  await savePersona(nombreController.text,apellidoController.text,emailController.text,generoController.text,nombreUsuarioController.text,claveController.text);
                   Navigator.push(
                       context, MaterialPageRoute(builder: (context) => home()));
                 }
+
               },
               child: Text('Registrarse'),
             ),
@@ -112,14 +123,5 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       ),
     );
-  }
-
-  void _registerUser(String firstName, String lastName, String email,
-      String gender, String password) {
-    print('Registrando usuario...');
-    print('Nombre: $firstName $lastName');
-    print('Email: $email');
-    print('Genero: $gender');
-    print('clave: $password');
   }
 }
