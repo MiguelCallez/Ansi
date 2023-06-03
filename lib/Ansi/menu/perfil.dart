@@ -21,7 +21,7 @@ class _perfilState extends State<perfil> {
             children: <Widget>[
               CircleAvatar(
                 radius: 50.0,
-                backgroundImage: AssetImage('assets/profile_image.png'), // Coloca la imagen de perfil en la carpeta 'assets'
+                backgroundImage: AssetImage('images\Imagen1.png'), 
               ),
               SizedBox(height: 20.0),
               Text(

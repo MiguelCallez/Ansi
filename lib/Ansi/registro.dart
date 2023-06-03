@@ -1,13 +1,12 @@
-import 'dart:js_util';
-
-import 'package:ejercicio/Ansi/Inicio.dart';
 import 'package:ejercicio/Ansi/home.dart';
 import 'package:ejercicio/servicios/firebase.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
-  @override
-  _SignUpPageState createState() => _SignUpPageState();
+ 
+ const SignUpPage({super.key});
+ @override
+ State<SignUpPage>createState()=> _SignUpPageState();
 }
 
 class _SignUpPageState extends State<SignUpPage> {
@@ -111,9 +110,13 @@ class _SignUpPageState extends State<SignUpPage> {
                     },
                   );
                 } else {
-                  await savePersona(nombreController.text,apellidoController.text,emailController.text,generoController.text,nombreUsuarioController.text,claveController.text);
-                  Navigator.push(
+                  await savePersona(nombreController.text,apellidoController.text,
+                  emailController.text,generoController.text,nombreUsuarioController.text,
+                  claveController.text).then((_) {Navigator.push(
                       context, MaterialPageRoute(builder: (context) => home()));
+                      }
+                      );
+                  
                 }
 
               },
