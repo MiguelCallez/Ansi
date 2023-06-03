@@ -7,6 +7,7 @@ import 'menu/configuracion.dart';
 import 'menu/contacto.dart';
 import 'menu/info.dart';
 import 'menu/perfil.dart';
+
 class Emergencia extends StatefulWidget {
   const Emergencia({super.key});
 
@@ -19,17 +20,17 @@ class _EmergenciaState extends State<Emergencia> {
   @override
   Widget build(BuildContext context) {
     var container;
-    if(pagina==DrawerSections.home){
-      container= home();
-    }else if(pagina==DrawerSections.perfil){
-      container= perfil();
-    }else if(pagina==DrawerSections.info){
+    if (pagina == DrawerSections.home) {
+      container = home();
+    } else if (pagina == DrawerSections.perfil) {
+      container = perfil();
+    } else if (pagina == DrawerSections.info) {
       container = info();
-    }else if(pagina==DrawerSections.configuracion){
+    } else if (pagina == DrawerSections.configuracion) {
       container = configuracion();
-    }else if(pagina==DrawerSections.contacto_psicologo){
+    } else if (pagina == DrawerSections.contacto_psicologo) {
       container = contacto();
-    }else if(pagina==DrawerSections.cerrarSesion){
+    } else if (pagina == DrawerSections.cerrarSesion) {
       container = cerrar();
     }
     return DefaultTabController(
@@ -39,7 +40,7 @@ class _EmergenciaState extends State<Emergencia> {
           title: Text('Ansi'),
           bottom: TabBar(
             tabs: [
-             Tab(
+              Tab(
                 child: ElevatedButton(
                     child: Tab(text: 'Home'),
                     onPressed: () {
@@ -68,27 +69,74 @@ class _EmergenciaState extends State<Emergencia> {
             ],
           ),
         ),
-        
-         drawer: Drawer(
-        child: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              children: [
-                barra1(),
-                drawerbarra(),
-              ],
+        body: Container(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Icon(
+                Icons.local_hospital,
+                size: 100.0,
+                color: Colors.red,
+              ),
+              SizedBox(height: 20.0),
+              ElevatedButton(
+                onPressed: () {
+                  
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(Icons.phone, color: Colors.white),
+                    SizedBox(width: 10.0),
+                    Text(
+                      'Llamar a Urgencias',
+                      style: TextStyle(fontSize: 20.0, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20.0),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Recomendaciones',
+                ),
+                maxLines: 4,
+              ),
+              SizedBox(height: 20.0),
+              ElevatedButton(
+                onPressed: () {
+                 
+                },
+                child: Text(
+                  'Guardar Recomendaciones',
+                  style: TextStyle(fontSize: 20.0),
+                ),
+              ),
+            ],
+          ),
+        ),
+        drawer: Drawer(
+          child: SingleChildScrollView(
+            child: Container(
+              child: Column(
+                children: [
+                  barra1(),
+                  drawerbarra(),
+                ],
+              ),
             ),
           ),
         ),
       ),
-      ),
     );
   }
+
   Widget drawerbarra() {
     return Container(
         padding: EdgeInsets.only(top: 15),
         child: Column(children: [
-           menuItem(7, "home", Icons.home,
+          menuItem(7, "home", Icons.home,
               pagina == DrawerSections.perfil ? true : false),
           menuItem(1, "perfil", Icons.person,
               pagina == DrawerSections.perfil ? true : false),
@@ -112,20 +160,20 @@ class _EmergenciaState extends State<Emergencia> {
         onTap: () {
           Navigator.pop(context);
           setState(() {
-            if(id==1){
-              pagina=DrawerSections.perfil;
-            }else if(id==2){
-              pagina=DrawerSections.info;
-            }else if(id==3){
-              pagina=DrawerSections.configuracion;
-            }else if(id==4){
-              pagina=DrawerSections.contacto_psicologo;
-            }else if(id==5){
-              pagina=DrawerSections.recomendaciones;
-            }else if(id==6){
-              pagina=DrawerSections.cerrarSesion;
-            }else if(id==7){
-              pagina=DrawerSections.home;
+            if (id == 1) {
+              pagina = DrawerSections.perfil;
+            } else if (id == 2) {
+              pagina = DrawerSections.info;
+            } else if (id == 3) {
+              pagina = DrawerSections.configuracion;
+            } else if (id == 4) {
+              pagina = DrawerSections.contacto_psicologo;
+            } else if (id == 5) {
+              pagina = DrawerSections.recomendaciones;
+            } else if (id == 6) {
+              pagina = DrawerSections.cerrarSesion;
+            } else if (id == 7) {
+              pagina = DrawerSections.home;
             }
           });
         },
@@ -157,6 +205,7 @@ class _EmergenciaState extends State<Emergencia> {
     );
   }
 }
+
 enum DrawerSections {
   perfil,
   info,
@@ -166,4 +215,3 @@ enum DrawerSections {
   cerrarSesion,
   home,
 }
-
